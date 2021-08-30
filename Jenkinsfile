@@ -9,13 +9,12 @@ pipeline {
         }
         stage("Docker Build") {
             steps {
-                docker build -t eureka-jenkins-image .
-				docker.withRegistry('docker-registry-testproject.192.168.99.120.nip.io', 'push-image-secret') {
+		    docker.withRegistry('docker-registry-testproject.192.168.99.120.nip.io', 'push-image-secret') {
 
-                    def customImage = docker.build("eureka-jenkins-image:${env.BUILD_ID}")
+                          def customImage = docker.build("eureka-jenkins-image:${env.BUILD_ID}")
 
         
-                     customImage.push()
+                          customImage.push()
                 }
             }
         }
