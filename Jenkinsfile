@@ -1,6 +1,6 @@
 pipeline {
     // Use the 'maven' Jenkins agent image which is provided with OpenShift 
-    agent any { dockerfile true }
+    agent { dockerfile true }
     stages {
         stage("Checkout") {
             steps {
