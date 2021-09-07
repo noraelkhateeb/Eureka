@@ -11,6 +11,8 @@ pipeline {
         }
         stage("Docker Build") {
             steps {
+		 
+		 script{   
 		    docker.withRegistry('docker-registry-testproject.192.168.99.120.nip.io', 'push-image-secret') {
 
                           def customImage = docker.build("eureka-jenkins-image:${env.BUILD_ID}")
@@ -18,6 +20,7 @@ pipeline {
         
                           customImage.push()
                     }
+		 }			 
             }
         }
 
