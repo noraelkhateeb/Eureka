@@ -2,7 +2,7 @@ pipeline {
     // Use the 'maven' Jenkins agent image which is provided with OpenShift 
     agent { 
 	    
-	Dockerfile true
+	dockerfile true
 	    
     }	    
     stages {
